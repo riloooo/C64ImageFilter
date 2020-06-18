@@ -25,6 +25,7 @@ def closest_pallette(pixel):
             best_color = color
     return best_color
 
+##FLOYD-STEINBERG ZONE##
 for y in range(img.size[1]-1):
     for x in range(1,img.size[0]-1):
         pixel = img.getpixel((x,y))
@@ -39,7 +40,7 @@ for y in range(img.size[1]-1):
         img.putpixel((x  ,y+1),tuple(int(val + err*5/16) for val,err in zip(img.getpixel((x  ,y+1)),errpixel)))
 
         img.putpixel((x+1,y+1),tuple(int(val + err*1/16) for val,err in zip(img.getpixel((x+1,y+1)),errpixel)))
-
+##FLOYD STEINBERG ZONE##
 
 new_location = asksaveasfilename(initialdir = f"C:/Users/{getuser()}/Pictures",title = "Save file",filetypes = (("PNG files","*.png"),("all files","*.*")))
 if len(new_location) <= 4 or new_location[-4:].lower() != ".png":
